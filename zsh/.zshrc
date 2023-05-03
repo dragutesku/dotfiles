@@ -97,20 +97,15 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
+## Custom Configuration
+# PATHS
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+## Aliases
  alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
