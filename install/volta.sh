@@ -2,15 +2,11 @@
 volta install node
 volta install npm
 
-packages=(
-    typescript
-    eslint
-    http-server
-    nodemon
-    @angular/cli
-    next@latest 
-    react@latest 
-    react-dom@latest
-)
-
-npm install -g "${packages[@]}"
+npm install -g typescript
+npm install -g eslint
+npm install -g http-server
+npm install -g nodemon
+npm install -g @angular/cli
+npm install -g next@latest
+npm install -g react@latest
+npm install -g react-dom@latest
