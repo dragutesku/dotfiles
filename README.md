@@ -36,6 +36,7 @@ Based on [Myshov Dotfiles](https://github.com/myshov/dotfiles/blob/master/README
     * Volta
         * Node@latest
         * Npm
+    * Npm
         * typescript
         * eslint
         * http-server
