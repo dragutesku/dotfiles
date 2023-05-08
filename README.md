@@ -48,8 +48,8 @@ Based on [Myshov Dotfiles](https://github.com/myshov/dotfiles/blob/master/README
 
 ## Intstall
 -------
-No further instalation method for this as it runs upon image creation for me
-Will add more options in the future 
+- No further instalation method for this as it runs upon image creation for me
+- Will add more options in the future 
 
 ```bash
 sh install.sh
