@@ -1,36 +1,25 @@
 #!/bin/bash
 
-dummy="false"
+# Get current dotfiles dir
+export DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-function log_success {
-    printf "\033[0;32m$1\033[0m\n"
-}
 
-function log_fail {
-    printf "\033[0;31m$1\033[0m\n"
-}
+echo "# Symlink Instalation ✏️"
+## Git
+ln -sfv "$DOTFILES_DIR/shell/git/.gitconfig" ~
+ln -sfv "$DOTFILES_DIR/shell/git/.gitignore_global" ~
+ln -sfv "$DOTFILES_DIR/shell/git/.gitsettings" ~
+## Zsh
+ln -sf "$DOTFILES_DIR/shell/zsh/.zshrc" "$HOME/.zshrc"
+echo "-----------------------------------------------"
 
-function helper_ask_yn {
-    local ref=$2
-    if ${!2} -eq "true"; then return 0; fi
+echo "# Package managers & packages ✏️"
+. "$DOTFILES_DIR/install/brew.sh"
+. "$DOTFILES_DIR/install/volta.sh"
+echo "-----------------------------------------------"
 
-    while true; do
-        read -p "> $1 [Yes/Any/No] " yn
-        case $yn in
-            "" ) return 0;;
-            [Yy]* ) return 0;;
-            [Nn]* ) return 1;;
-            Any ) eval $ref="true" && return 0;;
-            * ) echo "Please answer yes or no.";;
-        esac
-    done
-}
-
-echo "Configuring neovim ✏️"
-
-helper_ask_yn "Do you want to configure neovim in $HOME/.config/nvim ?" "dummy"
-if test $? -eq 0; then
-    log_success "Linking $PWD/.config/nvim -> $HOME/.config/nvim"
-    # ln -sf "$PWD/.config/nvim" "$HOME/.config/nvim"
-fi
+# Install NvChad
+echo "# NvChad ✏️"
+  git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+echo "-----------------------------------------------"
 
