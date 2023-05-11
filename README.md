@@ -18,6 +18,9 @@ Based on [Myshov Dotfiles](https://github.com/myshov/dotfiles/blob/master/README
 2. Add aliases for zsh
 3. Add tmux & configure it
 4. Add any missing packages
+5. Reorganize zsh to be more clean
+6. Do package manager checks and package checks, to not reinstall them if available
+7. Find a way to skip the promps and yes no questions
 
 ## Packages
 -------
