@@ -55,7 +55,7 @@ Based on [Myshov Dotfiles](https://github.com/myshov/dotfiles/blob/master/README
 - Will add more options in the future 
 
 ```bash
-sh install.sh
+sh setup.sh
 ```
 
 ## Additional resources
