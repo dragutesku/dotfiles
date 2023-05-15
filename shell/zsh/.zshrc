@@ -94,19 +94,31 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 # Custom Configuration
 ## Linuxbrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [ -d "/home/linuxbrew/.linuxbrew" ]
+then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 ## NVM
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+if [ -d "$HOME/.nvm" ]
+then
+    export NVM_DIR=~/.nvm
+    source $(brew --prefix nvm)/nvm.sh
+fi
 
 ## NPM
-NPM_PACKAGES="${HOME}/.npm-packages"
-export PATH="$PATH:$NPM_PACKAGES/bin"
+if [ -d "${HOME}/.npm-packages" ]
+then
+    NPM_PACKAGES="${HOME}/.npm-packages"
+    export PATH="$PATH:$NPM_PACKAGES/bin"
+fi
 
 ## VOLTA
-export VOLTA_HOME=$HOME/.volta
-export PATH="$PATH:$VOLTA_HOME/bin"
+if [ -d "$HOME/.volta" ]
+then
+    export VOLTA_HOME=$HOME/.volta
+    export PATH="$PATH:$VOLTA_HOME/bin"
+fi
 
 ## Aliases
  alias zshconfig="mate ~/.zshrc"
