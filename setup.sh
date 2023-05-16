@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # Get current dotfiles dir
+## TODO FIX THIS, encountered error ( /bin/bash: /home/dragutesku/install/brew.sh: No such file or directory )
+## Happens when running a new instance, it does not get the corect path
+## issue encountered at line 40 then it fails in cascade
 export DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";
 
 
@@ -41,13 +44,13 @@ if [ ! -d "/home/linuxbrew" ]; then
 fi
 
 ## Install Volta
-if [ -x "$(command brew) -v" ]; then
+if [ -x "$(command brew -v)" ]; then
     echo "Install Volta and all necessary packages";
     /bin/bash "$DOTFILES_DIR/install/volta.sh";
 fi
 
 ## Nvchad
-if [ -x "$(command nvim) -v" -a ! -d "$HOME/.config/nvim" ]; then
+if [ -x "$(command nvim -v)" -a ! -d "$HOME/.config/nvim" ]; then
     echo "Install Nvchad";
     git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1;
 else
