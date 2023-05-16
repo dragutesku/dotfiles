@@ -82,6 +82,3 @@ fi
 
 ## Relaunch shell
 echo "Instalation finished restart shell or die trying ...";
-
-cd ~
-source $HOME/.zshrc;
