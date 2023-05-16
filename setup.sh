@@ -16,11 +16,14 @@ ln -sfv "$DOTFILES_DIR/shell/git/.gitsettings" ~;
 ## Zsh
 if [ ! -f "$HOME/.zshrc" ]; then
     echo "Creating ZSHRC a file from the goodness of my heart ...";
-    touch $HOME/.zshrc
-fi
+    touch $HOME/.zshrc;
 
-echo "Linking ZSH file";
-ln -sf "$DOTFILES_DIR/shell/zsh/.zshrc" "$HOME/.zshrc";
+    echo "Linking ZSH file";
+    ln -sf "$DOTFILES_DIR/shell/zsh/.zshrc" "$HOME/.zshrc";
+else
+    echo "Linking ZSH file";
+    ln -sf "$DOTFILES_DIR/shell/zsh/.zshrc" "$HOME/.zshrc";
+fi
 
 ## Check for OhMyZsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -71,5 +74,4 @@ else
 fi
 
 ## Relaunch shell
-echo "Instalation finished restarting shell ...";
-source $HOME/.zshrc;
+echo "Instalation finished restart shell or die trying ...";
