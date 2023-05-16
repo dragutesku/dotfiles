@@ -13,17 +13,9 @@ ln -sfv "$DOTFILES_DIR/shell/git/.gitconfig" ~;
 ln -sfv "$DOTFILES_DIR/shell/git/.gitignore_global" ~;
 ln -sfv "$DOTFILES_DIR/shell/git/.gitsettings" ~;
 
-## Zsh
-if [ ! -f "$HOME/.zshrc" ]; then
-    echo "Creating ZSHRC a file from the goodness of my heart ...";
-    touch $HOME/.zshrc;
-
-    echo "Linking ZSH file";
-    ln -sf "$DOTFILES_DIR/shell/zsh/.zshrc" "$HOME/.zshrc";
-else
-    echo "Linking ZSH file";
-    ln -sf "$DOTFILES_DIR/shell/zsh/.zshrc" "$HOME/.zshrc";
-fi
+# Zsh
+## Get rid of old zshrc file
+rm -rf $HOME/.zshrc;
 
 ## Check for OhMyZsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -31,8 +23,15 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
 fi
 
-# Package Managers and packages
+## Create new zshrc
+echo "Creating ZSHRC a file from the goodness of my heart ...";
+touch $HOME/.zshrc;
 
+## Link it to what we have in config
+echo "Linking ZSH file";
+ln -sf "$DOTFILES_DIR/shell/zsh/.zshrc" "$HOME/.zshrc";
+
+# Package Managers and packages
 ## Install Linuxbrew
 echo "# Package managers & packages ✏️";
 if [ ! -d "/home/linuxbrew" ]; then
@@ -49,7 +48,7 @@ if [ -x "$(command -v brew)" ]; then
 fi
 
 ## Nvchad
-if [ -x "$(command -v nvim)" -a ! -d "$HOME/.config/nvim" ]; then
+if [ -x "$(command -v nvim)" ] && [ ! -d "$HOME/.config/nvim" ]; then
     echo "Install Nvchad";
     git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1;
 else
@@ -75,3 +74,4 @@ fi
 
 ## Relaunch shell
 echo "Instalation finished restart shell or die trying ...";
+source $HOME/.zshrc;
