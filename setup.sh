@@ -14,6 +14,12 @@ ln -sfv "$DOTFILES_DIR/shell/git/.gitignore_global" ~;
 ln -sfv "$DOTFILES_DIR/shell/git/.gitsettings" ~;
 
 ## Zsh
+if [ ! -f "$HOME/.zshrc" ]; then
+    echo "Creating ZSHRC a file from the goodness of my heart ...";
+
+    touch $HOME/.zshrc
+fi
+
 if [ $ZSH ]; then
     echo "Linking ZSH file";
     ln -sf "$DOTFILES_DIR/shell/zsh/.zshrc" "$HOME/.zshrc";
