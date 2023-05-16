@@ -38,13 +38,13 @@ if [ ! -d "/home/linuxbrew" ]; then
 fi
 
 ## Install Volta
-if [ -x "$(command brew -v)" ]; then
+if [ -x "$(command -v brew)" ]; then
     echo "Install Volta and all necessary packages";
     /bin/bash "$DOTFILES_DIR/install/volta.sh";
 fi
 
 ## Nvchad
-if [ -x "$(command nvim -v)" -a ! -d "$HOME/.config/nvim" ]; then
+if [ -x "$(command -v nvim)" -a ! -d "$HOME/.config/nvim" ]; then
     echo "Install Nvchad";
     git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1;
 else
