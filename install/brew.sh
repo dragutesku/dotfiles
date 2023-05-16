@@ -14,6 +14,7 @@ brew upgrade;
 ## Install packages
 echo "Brew install packages";
 
+brew install gcc;
 brew install ag;
 brew install cmake;
 brew install grep;
@@ -23,4 +24,3 @@ brew install tmux;
 brew install tree;
 brew install neovim;
 brew install volta;
-brew install gcc;

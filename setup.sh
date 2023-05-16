@@ -55,6 +55,11 @@ if [ -x "$(command -v brew)" ]; then
     /bin/bash "$DOTFILES_DIR/install/volta.sh";
 fi
 
+if [ -x "$(command -v npm)" ]; then
+    echo "Start NPM package installer";
+    /bin/bash "$DOTFILES_DIR/install/npm.sh";
+fi
+
 ## Nvchad
 if [ ! -d "$HOME/.config/nvim" ] && [ -x "$(command -v nvim)" ]; then
     echo "Install Nvchad";
