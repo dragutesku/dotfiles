@@ -4,7 +4,7 @@
 ## TODO FIX THIS, encountered error ( /bin/bash: /home/dragutesku/install/brew.sh: No such file or directory )
 ## Happens when running a new instance, it does not get the corect path
 ## issue encountered at line 40 then it fails in cascade
-export DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";
+export DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 
 # Package Managers and packages & Simlinks

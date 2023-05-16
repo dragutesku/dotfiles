@@ -117,7 +117,7 @@ if [ -d "$HOME/.volta" ]; then
 fi
 
 ## Aliases
- alias zshconfig="mate ~/.zshrc"
+alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
