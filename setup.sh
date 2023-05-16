@@ -43,6 +43,10 @@ if [ ! -d "/home/linuxbrew" ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)";
 fi
 
+if [ ! -x "$(command brew -v)" ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)";
+fi
+
 ## Install Volta
 if [ -x "$(command brew -v)" ]; then
     echo "Install Volta and all necessary packages";
