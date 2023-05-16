@@ -35,6 +35,8 @@ echo "# Package managers & packages ✏️";
 if [ ! -d "/home/linuxbrew" ]; then
     echo "Installing linuxbrew ...";
     /bin/bash "$DOTFILES_DIR/install/brew.sh";
+else
+    echo "Linuxbrew already here !";
 fi
 
 ## Install Volta
