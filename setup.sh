@@ -1,9 +1,6 @@
 #!/bin/bash
 
 # Get current dotfiles dir
-## TODO FIX THIS, encountered error ( /bin/bash: /home/dragutesku/install/brew.sh: No such file or directory )
-## Happens when running a new instance, it does not get the corect path
-## issue encountered at line 40 then it fails in cascade
 export DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 
@@ -38,13 +35,6 @@ echo "# Package managers & packages ✏️";
 if [ ! -d "/home/linuxbrew" ]; then
     echo "Installing linuxbrew ...";
     /bin/bash "$DOTFILES_DIR/install/brew.sh";
-
-    ### Need to lauch brew
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)";
-fi
-
-if [ ! -x "$(command brew -v)" ]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)";
 fi
 
 ## Install Volta

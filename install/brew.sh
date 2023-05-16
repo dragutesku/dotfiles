@@ -3,6 +3,8 @@ echo "Add Linuxbrew ✏️";
 
 yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" </dev/null;
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)";
+
 ## Update & Upgrade brew
 echo "Brew update & upgrade packages";
 
