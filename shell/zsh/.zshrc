@@ -94,28 +94,24 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 # Custom Configuration
 ## Linuxbrew
-if [ -d "/home/linuxbrew/.linuxbrew" ]
-then
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 ## NVM
-if [ -d "$HOME/.nvm" ]
-then
+if [ -d "$HOME/.nvm" ]; then
     export NVM_DIR=~/.nvm
     source $(brew --prefix nvm)/nvm.sh
 fi
 
 ## NPM
-if [ -d "${HOME}/.npm-packages" ]
-then
+if [ -d "${HOME}/.npm-packages" ]; then
     NPM_PACKAGES="${HOME}/.npm-packages"
     export PATH="$PATH:$NPM_PACKAGES/bin"
 fi
 
 ## VOLTA
-if [ -d "$HOME/.volta" ]
-then
+if [ -d "$HOME/.volta" ]; then
     export VOLTA_HOME=$HOME/.volta
     export PATH="$PATH:$VOLTA_HOME/bin"
 fi
