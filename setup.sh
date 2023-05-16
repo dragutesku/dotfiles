@@ -15,7 +15,10 @@ ln -sfv "$DOTFILES_DIR/shell/git/.gitsettings" ~;
 
 # Zsh
 ## Get rid of old zshrc file
-rm -rf $HOME/.zshrc;
+if [ -f "$HOME/.zshrc" ]; then
+    echo "remove current zsh file";
+    rm -rf $HOME/.zshrc;    
+fi
 
 ## Check for OhMyZsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -37,9 +40,14 @@ echo "# Package managers & packages ✏️";
 if [ ! -d "/home/linuxbrew" ]; then
     echo "Installing linuxbrew ...";
     /bin/bash "$DOTFILES_DIR/install/brew.sh";
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)";
 else
     echo "Linuxbrew already here !";
 fi
+
+## Somehow need rerun brew
+##TODO: if this works need to fix this later
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)";
 
 ## Install Volta
 if [ -x "$(command -v brew)" ]; then
@@ -48,7 +56,7 @@ if [ -x "$(command -v brew)" ]; then
 fi
 
 ## Nvchad
-if [ -x "$(command -v nvim)" ] && [ ! -d "$HOME/.config/nvim" ]; then
+if [ ! -d "$HOME/.config/nvim" ] && [ -x "$(command -v nvim)" ]; then
     echo "Install Nvchad";
     git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1;
 else
@@ -74,4 +82,6 @@ fi
 
 ## Relaunch shell
 echo "Instalation finished restart shell or die trying ...";
+
+cd ~
 source $HOME/.zshrc;
