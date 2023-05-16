@@ -16,22 +16,16 @@ ln -sfv "$DOTFILES_DIR/shell/git/.gitsettings" ~;
 ## Zsh
 if [ ! -f "$HOME/.zshrc" ]; then
     echo "Creating ZSHRC a file from the goodness of my heart ...";
-
     touch $HOME/.zshrc
 fi
 
-if [ $ZSH ]; then
-    echo "Linking ZSH file";
-    ln -sf "$DOTFILES_DIR/shell/zsh/.zshrc" "$HOME/.zshrc";
+echo "Linking ZSH file";
+ln -sf "$DOTFILES_DIR/shell/zsh/.zshrc" "$HOME/.zshrc";
 
-    ## Check for OhMyZsh
-    if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        echo "Installing OhMyZsh";
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
-    fi
-else
-    "No .zshrc found, please install zsh first, killing instalation ...";
-    exit;
+## Check for OhMyZsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Installing OhMyZsh";
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
 fi
 
 # Package Managers and packages
