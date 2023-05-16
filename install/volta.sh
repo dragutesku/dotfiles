@@ -1,4 +1,7 @@
 # Install node & npm packages
+# https://volta.sh/
+echo "Volta installing needed packages";
+
 volta install node;
 volta install npm;
 

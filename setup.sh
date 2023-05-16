@@ -41,29 +41,36 @@ if [ ! -d "/home/linuxbrew" ]; then
 fi
 
 ## Install Volta
-if [ -x "$(command brew)" ]; then
-    echo "Install Volta";
+if [ -x "$(command brew) -v" ]; then
+    echo "Install Volta and all necessary packages";
     /bin/bash "$DOTFILES_DIR/install/volta.sh";
 fi
 
 ## Nvchad
-if [ -x "$(command nvim)" ]; then
+if [ -x "$(command nvim) -v" -a ! -d "$HOME/.config/nvim" ]; then
     echo "Install Nvchad";
     git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1;
+else
+    echo "Nvim already has a configuration moving on ...";
 fi
 
 ## Generate SSH
-if [ ! -d "/home/dragutesku/.ssh" ]; then
+if [ ! -d "$HOME/.ssh" ]; then
     echo "Generating new ssh";
     /bin/bash "$DOTFILES_DIR/install/ssh.sh";
+else 
+    echo "SSH already heare moving on ...";
 fi
 echo "-----------------------------------------------";
 
-# Cleanup
+## Cleanup
 if [ -f "$HOME/dotfiles/install.sh" ]; then
     echo "Cleaning and relaunchin shell";
     rm -rf ./install.sh;
-
-    ## Relaunch shell
-    source $HOME/.zshrc;
+else
+    echo "No cleaning needed ...";
 fi
+
+## Relaunch shell
+echo "Instalation finished restarting shell ...";
+source $HOME/.zshrc;
