@@ -55,16 +55,12 @@ if [ -x "$(command -v brew)" ]; then
     /bin/bash "$DOTFILES_DIR/install/volta.sh";
 fi
 
-if [ -x "$(command -v volta)" ]; then
-    echo "Volta debugger";
-else 
-    echo "Volta command no workie";
-fi
-
 ## Install Npm packages
-if [ -d "$HOME/.volta/bin/npm" ]; then
+if [ -x "$(command -v volta)" ]; then
     echo "Start NPM package installer";
     /bin/bash "$DOTFILES_DIR/install/npm.sh";
+else 
+    echo "Volta command no workie";
 fi
 
 ## Nvchad
