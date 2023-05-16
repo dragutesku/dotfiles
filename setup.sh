@@ -55,7 +55,8 @@ if [ -x "$(command -v brew)" ]; then
     /bin/bash "$DOTFILES_DIR/install/volta.sh";
 fi
 
-if [ -x "$(command -v npm)" ]; then
+## Install Npm packages
+if [ -d "$HOME/.volta/bin/npm" ]; then
     echo "Start NPM package installer";
     /bin/bash "$DOTFILES_DIR/install/npm.sh";
 fi
