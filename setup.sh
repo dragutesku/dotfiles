@@ -57,6 +57,10 @@ fi
 
 ## Install Npm packages
 if [ -x "$(command -v volta)" ]; then
+    echo "Temporary add NODE & NPM to path";
+    eval "$(/home/$USER/.volta/bin/node shellenv)";
+    eval "$(/home/$USER/.volta/bin/npm shellenv)";
+
     echo "Start NPM package installer";
     /bin/bash "$DOTFILES_DIR/install/npm.sh";
 else 
