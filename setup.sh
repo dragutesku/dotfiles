@@ -49,22 +49,10 @@ fi
 ##TODO: if this works need to fix this later
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)";
 
-## Install Volta
-if [ -x "$(command -v brew)" ]; then
+## Install Volta Packages
+if [ -x "$(command -v volta)" ]; then
     echo "Install Volta and all necessary packages";
     /bin/bash "$DOTFILES_DIR/install/volta.sh";
-fi
-
-## Install Npm packages
-if [ -x "$(command -v volta)" ]; then
-    echo "Temporary add NODE & NPM to path";
-    eval "$(~/.volta/bin/node shellenv)";
-    eval "$(~/.volta/bin/npm shellenv)";
-
-    echo "Start NPM package installer";
-    /bin/bash "$DOTFILES_DIR/install/npm.sh";
-else 
-    echo "Volta command no workie";
 fi
 
 ## Nvchad
