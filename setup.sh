@@ -17,7 +17,7 @@ ln -sfv "$DOTFILES_DIR/shell/git/.gitsettings" ~;
 ## Get rid of old zshrc file
 if [ -f "$HOME/.zshrc" ]; then
     echo "remove current zsh file";
-    rm -rf $HOME/.zshrc;    
+    rm -rf $HOME/.zshrc;
 fi
 
 ## Check for OhMyZsh
@@ -55,10 +55,11 @@ if [ -x "$(command -v volta)" ]; then
     /bin/bash "$DOTFILES_DIR/install/volta.sh";
 fi
 
-## Nvchad
+## Nvchad : Broken for Nvchad
+# TODO: make a flag to install for code server and use custom setup
 if [ ! -d "$HOME/.config/nvim" ] && [ -x "$(command -v nvim)" ]; then
     echo "Install Nvchad";
-    git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1;
+   # git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1;
 else
     echo "Nvim already has a configuration moving on ...";
 fi
@@ -67,7 +68,7 @@ fi
 if [ ! -d "$HOME/.ssh" ]; then
     echo "Generating new ssh";
     /bin/bash "$DOTFILES_DIR/install/ssh.sh";
-else 
+else
     echo "SSH already heare moving on ...";
 fi
 echo "-----------------------------------------------";
